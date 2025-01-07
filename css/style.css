@@ -1,3 +1,12 @@
+:root {
+  --jet: #343434;
+  --vegas-gold: #2596be;
+  --text-gradient-yellow: #2596be;
+  --light-gray: #a8a8a8;
+ 
+}
+
+
 /* Box Model Hack */
 * {
   box-sizing: border-box;
@@ -28,7 +37,10 @@ body {
 
 body {
   /* background-color: rgb(34, 40, 49); */
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(34, 40, 49);
+
+
+  /**/
 
   font-family: "Satoshi 400";
   font-size: 1.5rem;
@@ -441,6 +453,71 @@ main {
   object-fit: fill;
 }
 
+
+/* EDUCATION SECTION STYLING */
+
+
+
+.timeline { margin-bottom: 30px; }
+
+.timeline .title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.timeline-list {
+  font-size: var(--fs-6);
+  margin-left: 45px;
+}
+
+.timeline-item { position: relative; }
+
+.timeline-item:not(:last-child) { margin-bottom: 20px; }
+
+.timeline-item-title {
+  font-size: var(--fs-6);
+  line-height: 1.3;
+  margin-bottom: 7px;
+}
+
+.timeline-list span {
+  color: var(--vegas-gold);
+  font-weight: var(--fw-400);
+  line-height: 1.6;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -30px;
+  width: 1px;
+  height: calc(100% + 50px);
+  background: var(--jet);
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -33px;
+  height: 6px;
+  width: 6px;
+  background: var(--text-gradient-yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--jet);
+}
+
+.timeline-text {
+  color: var(--light-gray);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+}
+
+
+
 /* SKILLS SECTION STYLING */
 .skill {
   width: 100px;
@@ -664,6 +741,62 @@ footer span {
 /* ADDITIONAL STYLES
 /* MEDIA QUERIES
 /*******************************************/
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode {
+    --bg-color: #000000;
+    --text-color: #e0e0e0;
+    --accent-color: #3a7fd9;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dark-mode .nav-menu {
+    background-color: #0a0a0a;
+}
+
+.dark-mode a {
+    color: var(--accent-color);
+}
+
+.dark-mode .social svg {
+    fill: #d0d0d0;
+}
+
+.dark-mode .social:hover svg {
+    fill: var(--accent-color);
+}
+
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 @media screen and (min-width: 720px) {
   body {
     display: flex;
